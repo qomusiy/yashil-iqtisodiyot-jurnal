@@ -1,677 +1,862 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uz">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JED | Journal of Green Economy and Development</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:wght@700&amp;display=swap');
-        
-        :root {
-            --primary: #0a3d62;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yashil moliya va innovatsion iqtisodiyot</title>
+  <meta name="description" content="Yashil moliya va innovatsion iqtisodiyot ilmiy-amaliy jurnalining rasmiy sayti" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: '#0f766e',
+            brandDark: '#0b4f4a',
+            brandSoft: '#ecfdf5',
+            gold: '#b98a28',
+            ink: '#0f172a',
+            mist: '#f8fafc'
+          },
+          boxShadow: {
+            soft: '0 12px 30px rgba(15, 23, 42, 0.08)',
+            card: '0 20px 50px rgba(15, 23, 42, 0.10)'
+          }
         }
-        
-        .tail-container {
-            font-family: 'Inter', system_ui, sans-serif;
-        }
-        
-        .heading-font {
-            font-family: 'Playfair Display', sans-serif;
-        }
-
-        .hero-bg {
-            background: linear-gradient(rgba(10, 61, 98, 0.75), rgba(10, 61, 98, 0.85)), 
-                        url('https://picsum.photos/id/1015/2000/1200') center/cover no-repeat;
-        }
-
-        .nav-link {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .nav-link:hover {
-            color: #00c853;
-            transform: translateY(-2px);
-        }
-
-        .article-card {
-            transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
-        }
-        
-        .article-card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
-        }
-
-        .lang-btn {
-            transition: all 0.3s;
-            padding: 8px 16px;
-        }
-        
-        .lang-btn.active {
-            background-color: #00c853;
-            color: white;
-            border-radius: 9999px;
-        }
-
-        .section-header {
-            position: relative;
-        }
-        
-        .section-header:after {
-            content: '';
-            position: absolute;
-            width: 60px;
-            height: 3px;
-            background: #00c853;
-            bottom: -8px;
-            left: 0;
-        }
-
-        /* Mobile improvements */
-        @media (max-width: 640px) {
-            .hero-bg h2 {
-                font-size: 2.75rem;
-                line-height: 1.05;
-            }
-            .hero-bg p {
-                font-size: 1.15rem;
-            }
-        }
-    </style>
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f8fafc;
+      color: #0f172a;
+    }
+    .hero-bg {
+      background:
+        radial-gradient(circle at top left, rgba(15,118,110,.14), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(185,138,40,.15), transparent 28%),
+        linear-gradient(135deg, #f8fafc 0%, #ffffff 55%, #f0fdfa 100%);
+    }
+    .section-offset { scroll-margin-top: 100px; }
+    .glass {
+      background: rgba(255,255,255,.8);
+      backdrop-filter: blur(14px);
+    }
+    .nav-link.active,
+    .mobile-link.active {
+      background: rgba(15,118,110,.08);
+      color: #0b4f4a;
+    }
+  </style>
 </head>
-<body class="tail-container text-gray-800 bg-white">
+<body class="antialiased">
+  <header class="sticky top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur">
+    <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
+      <a href="#home" class="min-w-0">
+        <h1 id="brand-name" class="truncate text-lg font-bold text-ink sm:text-xl"></h1>
+      </a>
 
-    <!-- TOP BAR -->
-    <div class="bg-[#0a3d62] text-white py-2.5 text-sm">
-        <div class="max-w-7xl mx-auto px-5 md:px-6 flex justify-between items-center">
-            <div class="flex items-center gap-4 text-xs">
-                <a href="#" onclick="switchLang('en'); return false;" class="lang-btn active px-5 py-2 text-xs font-medium" id="lang-en">EN</a>
-                <a href="#" onclick="switchLang('uz'); return false;" class="lang-btn px-5 py-2 text-xs font-medium" id="lang-uz">UZ</a>
-                <a href="#" onclick="switchLang('ru'); return false;" class="lang-btn px-5 py-2 text-xs font-medium" id="lang-ru">RU</a>
-            </div>
-            <div class="flex items-center gap-4 text-xs">
-                <a href="#" class="hover:text-emerald-400 transition-colors flex items-center gap-1.5">
-                    <i class="fas fa-search"></i>
-                    <span data-key="search">Search Journal</span>
-                </a>
-                <div class="h-3 w-px bg-white/30"></div>
-                <a href="https://doi.org" target="_blank" class="hover:text-emerald-400 transition-colors">DOI • CrossRef</a>
-            </div>
+      <nav class="hidden items-center gap-1 rounded-full border border-slate-200 bg-white p-1 lg:flex">
+        <a href="#about" id="nav-about" class="nav-link rounded-full px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-100"></a>
+        <a href="#issue" id="nav-issue" class="nav-link rounded-full px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-100"></a>
+        <a href="#archive" id="nav-archive" class="nav-link rounded-full px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-100"></a>
+        <a href="#authors" id="nav-authors" class="nav-link rounded-full px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-100"></a>
+        <a href="#board" id="nav-board" class="nav-link rounded-full px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-100"></a>
+        <a href="#contact" id="nav-contact" class="nav-link rounded-full px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-100"></a>
+      </nav>
+
+      <div class="hidden items-center gap-3 sm:flex">
+        <div class="relative">
+          <select id="lang-select" class="appearance-none rounded-full border border-slate-200 bg-white px-4 py-3 pr-10 text-sm font-semibold text-slate-700 shadow-soft outline-none transition focus:border-brand">
+            <option value="uz">Uz</option>
+            <option value="en">En</option>
+            <option value="ru">Ru</option>
+          </select>
+          <span class="pointer-events-none absolute inset-y-0 right-4 flex items-center text-slate-400">▾</span>
         </div>
+        <a id="header-submit" href="https://t.me/Nazrullaevich" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-full bg-brand px-5 py-3 text-sm font-semibold text-white shadow-soft transition hover:bg-brandDark"></a>
+      </div>
+
+      <button id="menu-toggle" class="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-slate-200 bg-white text-slate-700 lg:hidden" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
+        <svg id="menu-open" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <svg id="menu-close" xmlns="http://www.w3.org/2000/svg" class="hidden h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
     </div>
 
-    <!-- HEADER -->
-    <header class="bg-white border-b sticky top-0 z-50 shadow-sm">
-        <div class="max-w-7xl mx-auto px-5 md:px-6">
-            <div class="flex items-center justify-between py-5">
-                <!-- LOGO (text-only) -->
-                <div class="flex items-center gap-3">
-                    <!-- <div class="w-10 h-10 bg-emerald-600 rounded-2xl flex items-center justify-center text-white text-3xl font-bold">JED</div> -->
-                    <div>
-                        <h1 class="heading-font text-2xl font-bold tracking-tight text-[#0a3d62]" data-key="journal-name">Journal of Green Economy</h1>
-                        <p class="text-[10px] text-gray-500 -mt-1" data-key="journal-subtitle">ISSN 2789-4320 • Open Access • Peer-Reviewed</p>
-                    </div>
-                </div>
+    <div id="mobile-menu" class="hidden border-t border-slate-200 bg-white lg:hidden">
+      <div class="mx-auto max-w-7xl px-4 py-4 sm:px-6">
+        <div class="mb-4 relative">
+          <select id="lang-select-mobile" class="w-full appearance-none rounded-2xl border border-slate-200 bg-white px-4 py-3 pr-10 text-sm font-semibold text-slate-700 shadow-soft outline-none transition focus:border-brand">
+            <option value="uz">Uz</option>
+            <option value="en">En</option>
+            <option value="ru">Ru</option>
+          </select>
+          <span class="pointer-events-none absolute inset-y-0 right-4 flex items-center text-slate-400">▾</span>
+        </div>
+        <div class="grid gap-2 text-sm font-semibold text-slate-700">
+          <a href="#about" id="m-nav-about" class="mobile-link rounded-2xl px-4 py-3 transition hover:bg-slate-50"></a>
+          <a href="#issue" id="m-nav-issue" class="mobile-link rounded-2xl px-4 py-3 transition hover:bg-slate-50"></a>
+          <a href="#archive" id="m-nav-archive" class="mobile-link rounded-2xl px-4 py-3 transition hover:bg-slate-50"></a>
+          <a href="#authors" id="m-nav-authors" class="mobile-link rounded-2xl px-4 py-3 transition hover:bg-slate-50"></a>
+          <a href="#board" id="m-nav-board" class="mobile-link rounded-2xl px-4 py-3 transition hover:bg-slate-50"></a>
+          <a href="#contact" id="m-nav-contact" class="mobile-link rounded-2xl px-4 py-3 transition hover:bg-slate-50"></a>
+          <a id="mobile-submit" href="https://t.me/Nazrullaevich" target="_blank" rel="noopener" class="mt-2 inline-flex items-center justify-center rounded-2xl bg-brand px-4 py-3 text-sm font-semibold text-white shadow-soft"></a>
+        </div>
+      </div>
+    </div>
+  </header>
 
-                <!-- DESKTOP NAV -->
-                <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
-                    <a href="#" onclick="navigateTo('home'); return false;" class="nav-link text-[#0a3d62]" data-key="nav-home">Home</a>
-                    <a href="#" onclick="navigateTo('about'); return false;" class="nav-link text-[#0a3d62]" data-key="nav-about">About Us</a>
-                    <a href="#" onclick="navigateTo('editorial'); return false;" class="nav-link text-[#0a3d62]" data-key="nav-editorial">Editorial Board</a>
-                    <a href="#" onclick="navigateTo('submission'); return false;" class="nav-link text-[#0a3d62]" data-key="nav-submit">Submit Manuscript</a>
-                    <a href="#" onclick="navigateTo('current'); return false;" class="nav-link text-[#0a3d62]" data-key="nav-current">Current Issue</a>
-                    <a href="#" onclick="navigateTo('archive'); return false;" class="nav-link text-[#0a3d62]" data-key="nav-archive">Archives</a>
-                </nav>
+  <main id="home">
+    <section class="hero-bg border-b border-slate-200">
+      <div class="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 sm:py-16 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:px-8 lg:py-20">
+        <div>
+          <div id="hero-kicker" class="inline-flex rounded-full border border-brand/15 bg-white px-4 py-2 text-sm font-semibold text-brand shadow-soft"></div>
+          <h2 id="hero-title" class="mt-5 max-w-4xl text-4xl font-bold leading-tight text-slate-900 sm:text-5xl lg:text-6xl"></h2>
+          <p id="hero-text" class="mt-5 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg"></p>
 
-                <!-- RIGHT SIDE -->
-                <div class="flex items-center gap-4">
-                    <button onclick="navigateTo('submission'); return false;" 
-                            class="bg-emerald-600 hover:bg-emerald-700 text-white px-7 py-3.5 rounded-3xl text-sm font-semibold flex items-center gap-2 transition-all shadow-md active:scale-95">
-                        <i class="fas fa-paper-plane"></i>
-                        <span data-key="submit-btn">Submit Now</span>
-                    </button>
-                    
-                    <!-- MOBILE MENU BUTTON -->
-                    <button onclick="toggleMobileMenu()" class="md:hidden text-3xl text-[#0a3d62] active:scale-95 transition-transform">
-                        <i class="fas fa-bars"></i>
-                    </button>
-                </div>
-            </div>
+          <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+            <a id="hero-download" href="journals/jurnal 1-son.docx" download class="inline-flex items-center justify-center rounded-full bg-brand px-6 py-3.5 text-sm font-semibold text-white shadow-soft transition hover:bg-brandDark"></a>
+            <a id="hero-submit" href="https://t.me/Nazrullaevich" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-3.5 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"></a>
+          </div>
+
         </div>
 
-        <!-- MOBILE MENU -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t py-6">
-            <div class="px-6 flex flex-col gap-6 text-base font-medium">
-                <a href="#" onclick="navigateTo('home'); toggleMobileMenu(); return false;" data-key="nav-home" class="py-2">Home</a>
-                <a href="#" onclick="navigateTo('about'); toggleMobileMenu(); return false;" data-key="nav-about" class="py-2">About Us</a>
-                <a href="#" onclick="navigateTo('editorial'); toggleMobileMenu(); return false;" data-key="nav-editorial" class="py-2">Editorial Board</a>
-                <a href="#" onclick="navigateTo('submission'); toggleMobileMenu(); return false;" data-key="nav-submit" class="py-2">Submit Manuscript</a>
-                <a href="#" onclick="navigateTo('current'); toggleMobileMenu(); return false;" data-key="nav-current" class="py-2">Current Issue</a>
-                <a href="#" onclick="navigateTo('archive'); toggleMobileMenu(); return false;" data-key="nav-archive" class="py-2">Archives</a>
+        <div>
+          <div class="rounded-[30px] border border-slate-200 bg-white p-6 shadow-card sm:p-8">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <p id="issue-label" class="text-sm font-semibold uppercase tracking-[0.18em] text-brand"></p>
+                <h3 id="issue-title" class="mt-3 text-2xl font-bold text-slate-900 sm:text-3xl"></h3>
+                <p id="issue-summary" class="mt-3 text-sm leading-7 text-slate-600"></p>
+              </div>
+              <span id="issue-year" class="rounded-full bg-brandSoft px-3 py-1 text-xs font-bold text-brandDark">2026</span>
             </div>
+
+            <div class="mt-6 rounded-[24px] bg-slate-950 p-6 text-white">
+              <p id="featured-label" class="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-300"></p>
+              <div id="featured-list" class="mt-5 space-y-4"></div>
+              <div class="mt-6 flex flex-col gap-3 sm:flex-row">
+                <a id="featured-download" href="journals/jurnal 1-son.docx" download class="inline-flex items-center justify-center rounded-full bg-white px-4 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-100"></a>
+                <a id="featured-contact" href="#contact" class="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-4 py-3 text-sm font-semibold text-white transition hover:bg-white/15"></a>
+              </div>
+            </div>
+
+            <div id="issue-stats" class="mt-6 grid gap-3 sm:grid-cols-2"></div>
+          </div>
         </div>
-    </header>
+      </div>
+    </section>
 
-    <!-- MAIN CONTENT -->
-    <main class="min-h-screen">
+    <section id="about" class="section-offset py-14 sm:py-16 lg:py-20">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
+          <div>
+            <p id="about-kicker" class="text-sm font-semibold uppercase tracking-[0.18em] text-brand"></p>
+            <h2 id="about-title" class="mt-4 text-3xl font-bold text-slate-900 sm:text-4xl"></h2>
+            <p id="about-text" class="mt-5 max-w-3xl text-base leading-8 text-slate-600 sm:text-lg"></p>
+            <div id="about-tags" class="mt-6 flex flex-wrap gap-3"></div>
+          </div>
 
-        <!-- HOME PAGE -->
-        <section id="page-home" class="page">
-            <!-- HERO -->
-            <div class="hero-bg min-h-screen flex items-center text-white">
-                <div class="max-w-5xl mx-auto px-5 md:px-6 text-center">
-                    <div class="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md px-6 py-2 rounded-3xl text-sm mb-6">
-                        <span class="w-3 h-3 bg-emerald-400 rounded-full animate-pulse"></span>
-                        <span data-key="hero-tag">Vol. 5 • No. 1 • March 2026</span>
-                    </div>
-                    <h2 class="heading-font text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-none mb-6" data-key="hero-title">
-                        Green Economy.<br>Real Development.
-                    </h2>
-                    <p class="max-w-2xl mx-auto text-lg sm:text-xl text-white/90 mb-10" data-key="hero-subtitle">
-                        Open-access, peer-reviewed journal publishing cutting-edge research on sustainable economics, green innovation and development policy in Central Asia and beyond.
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                        <button onclick="navigateTo('current'); return false;" 
-                                class="bg-white text-[#0a3d62] hover:bg-emerald-50 px-10 py-5 rounded-3xl text-base sm:text-lg font-semibold flex items-center gap-3 active:scale-95 transition-all">
-                            <span data-key="hero-current">Browse Current Issue</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </button>
-                        <button onclick="navigateTo('submission'); return false;" 
-                                class="border-2 border-white hover:bg-white hover:text-[#0a3d62] px-10 py-5 rounded-3xl text-base sm:text-lg font-semibold transition-all active:scale-95">
-                            <span data-key="hero-submit">Submit Your Paper</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- QUICK STATS -->
-            <div class="bg-white py-12 border-b">
-                <div class="max-w-7xl mx-auto px-5 md:px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                    <div>
-                        <div class="text-4xl font-bold text-emerald-600" data-key="stat-1">128</div>
-                        <div class="text-sm text-gray-500 mt-1" data-key="stat-1-label">Articles Published</div>
-                    </div>
-                    <div>
-                        <div class="text-4xl font-bold text-emerald-600" data-key="stat-2">47</div>
-                        <div class="text-sm text-gray-500 mt-1" data-key="stat-2-label">Countries Represented</div>
-                    </div>
-                    <div>
-                        <div class="text-4xl font-bold text-emerald-600" data-key="stat-3">3.8</div>
-                        <div class="text-sm text-gray-500 mt-1" data-key="stat-3-label">Impact Factor (2025)</div>
-                    </div>
-                    <div>
-                        <div class="text-4xl font-bold text-emerald-600" data-key="stat-4">21</div>
-                        <div class="text-sm text-gray-500 mt-1" data-key="stat-4-label">Days Average Review</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ABOUT SNIPPET -->
-            <div class="max-w-7xl mx-auto px-5 md:px-6 py-20">
-                <div class="grid md:grid-cols-12 gap-12 items-center">
-                    <div class="md:col-span-5">
-                        <h3 class="section-header text-3xl md:text-4xl font-semibold mb-8" data-key="about-snippet-title">About the Journal</h3>
-                        <div class="prose text-gray-600 text-base md:text-lg" data-key="about-snippet-text">
-                            JED is an international, open-access, peer-reviewed journal dedicated to advancing research on green economy transformation, sustainable development goals, and innovative economic policies. 
-                            Published by the Center for Green Development Studies (Tashkent), we welcome submissions from scholars worldwide.
-                        </div>
-                        <button onclick="navigateTo('about'); return false;" 
-                                class="mt-8 text-emerald-600 font-semibold flex items-center gap-2 hover:gap-4 transition-all">
-                            Read full story <i class="fas fa-arrow-right"></i>
-                        </button>
-                    </div>
-                    <div class="md:col-span-7">
-                        <div class="bg-gray-100 rounded-3xl overflow-hidden">
-                            <img src="https://picsum.photos/id/1016/1200/600" alt="Journal Cover" class="w-full">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- CURRENT ISSUE HIGHLIGHT -->
-            <div class="bg-gray-50 py-20">
-                <div class="max-w-7xl mx-auto px-5 md:px-6">
-                    <div class="flex items-end justify-between mb-10">
-                        <div>
-                            <span class="uppercase tracking-widest text-emerald-600 text-sm font-medium" data-key="current-issue-label">March 2026 • Vol. 5 No. 1</span>
-                            <h3 class="text-3xl md:text-4xl font-semibold mt-2" data-key="current-issue-title">Current Issue</h3>
-                        </div>
-                        <a onclick="navigateTo('current'); return false;" class="text-emerald-600 font-medium flex items-center gap-2 hover:underline text-sm md:text-base">
-                            View all articles <i class="fas fa-chevron-right"></i>
-                        </a>
-                    </div>
-
-                    <div class="grid md:grid-cols-3 gap-6" id="home-article-grid">
-                        <!-- Populated by JS -->
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ABOUT PAGE -->
-        <section id="page-about" class="page hidden max-w-4xl mx-auto px-5 md:px-6 py-20">
-            <h2 class="heading-font text-5xl md:text-6xl font-bold text-[#0a3d62] mb-6" data-key="about-title">About Us</h2>
-            <div class="prose prose-lg text-gray-600" data-key="about-full-text">
-                <p>The Journal of Green Economy and Development (JED) is a multidisciplinary, open-access journal founded in 2022 in Tashkent, Uzbekistan. Our mission is to bridge academic research and real-world policy on sustainable economic growth, green finance, circular economy, climate resilience, and digital transformation in emerging markets.</p>
-                <p>We publish original research articles, review papers, policy briefs, and case studies. All articles undergo double-blind peer review and are published under Creative Commons CC-BY 4.0 license.</p>
-                <h4 class="mt-12 text-2xl font-semibold">Aims &amp; Scope</h4>
-                <ul class="list-disc pl-6 space-y-2">
-                    <li>Green finance and sustainable investment</li>
-                    <li>Climate change economics and policy</li>
-                    <li>Circular economy and resource efficiency</li>
-                    <li>Digital economy for sustainable development</li>
-                    <li>Regional development in Central Asia</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- EDITORIAL BOARD PAGE -->
-        <section id="page-editorial" class="page hidden py-20 bg-white">
-            <div class="max-w-7xl mx-auto px-5 md:px-6">
-                <h2 class="heading-font text-5xl md:text-6xl font-bold text-[#0a3d62] mb-4 text-center" data-key="editorial-title">Editorial Board</h2>
-                <p class="text-center text-gray-500 max-w-md mx-auto mb-16" data-key="editorial-subtitle">Distinguished scholars and experts shaping the future of green economy research</p>
-                
-                <div class="grid md:grid-cols-3 gap-8" id="editorial-grid">
-                    <!-- Populated by JS -->
-                </div>
-            </div>
-        </section>
-
-        <!-- SUBMISSION PAGE -->
-        <section id="page-submission" class="page hidden max-w-3xl mx-auto px-5 md:px-6 py-20">
-            <h2 class="heading-font text-5xl md:text-6xl font-bold text-[#0a3d62] mb-8" data-key="submission-title">Submit Your Manuscript</h2>
-            <div class="bg-emerald-50 border border-emerald-200 rounded-3xl p-8 md:p-10">
-                <div class="space-y-8">
-                    <div>
-                        <label class="block text-sm font-medium mb-2" data-key="submission-step1">1. Check Author Guidelines</label>
-                        <a href="#" class="inline-flex items-center gap-2 text-emerald-700 hover:underline">
-                            Download PDF Guidelines <i class="fas fa-download"></i>
-                        </a>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium mb-2" data-key="submission-step2">2. Prepare your manuscript (Word/PDF, max 10 000 words)</label>
-                    </div>
-                    <button onclick="fakeSubmit()" 
-                            class="w-full bg-[#0a3d62] hover:bg-black text-white py-6 rounded-3xl text-lg md:text-xl font-semibold transition-all active:scale-95">
-                        <span data-key="submission-btn">Go to Online Submission System</span>
-                    </button>
-                    <p class="text-xs text-center text-gray-500">Average time from submission to first decision: 21 days</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- CURRENT ISSUE PAGE -->
-        <section id="page-current" class="page hidden py-20 bg-gray-50">
-            <div class="max-w-7xl mx-auto px-5 md:px-6">
-                <div class="text-center mb-16">
-                    <span class="bg-emerald-100 text-emerald-700 px-5 py-2 rounded-3xl text-sm font-medium">Vol. 5 • No. 1 • March 2026</span>
-                    <h2 class="heading-font text-5xl md:text-6xl font-bold mt-6" data-key="current-full-title">Current Issue</h2>
-                </div>
-                
-                <div class="grid md:grid-cols-2 gap-8" id="current-issue-grid">
-                    <!-- Populated by JS -->
-                </div>
-            </div>
-        </section>
-
-        <!-- ARCHIVES PAGE -->
-        <section id="page-archive" class="page hidden py-20">
-            <div class="max-w-7xl mx-auto px-5 md:px-6">
-                <h2 class="heading-font text-5xl md:text-6xl font-bold text-[#0a3d62] mb-12 text-center" data-key="archive-title">Archives</h2>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                    <div onclick="alert('Opening 2025 issues... (demo)')" class="bg-white border border-gray-200 hover:border-emerald-300 p-8 rounded-3xl cursor-pointer transition-all active:scale-95">
-                        <div class="text-4xl font-bold text-emerald-600">2025</div>
-                        <div class="mt-8 text-sm text-gray-500">4 issues • 52 articles</div>
-                    </div>
-                    <div onclick="alert('Opening 2024 issues... (demo)')" class="bg-white border border-gray-200 hover:border-emerald-300 p-8 rounded-3xl cursor-pointer transition-all active:scale-95">
-                        <div class="text-4xl font-bold text-emerald-600">2024</div>
-                        <div class="mt-8 text-sm text-gray-500">4 issues • 41 articles</div>
-                    </div>
-                    <div onclick="alert('Opening 2023 issues... (demo)')" class="bg-white border border-gray-200 hover:border-emerald-300 p-8 rounded-3xl cursor-pointer transition-all active:scale-95">
-                        <div class="text-4xl font-bold text-emerald-600">2023</div>
-                        <div class="mt-8 text-sm text-gray-500">3 issues • 29 articles</div>
-                    </div>
-                    <div onclick="alert('Opening 2022 issues... (demo)')" class="bg-white border border-gray-200 hover:border-emerald-300 p-8 rounded-3xl cursor-pointer transition-all active:scale-95">
-                        <div class="text-4xl font-bold text-emerald-600">2022</div>
-                        <div class="mt-8 text-sm text-gray-500">2 issues • 18 articles</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="bg-[#0a3d62] text-white/80">
-        <div class="max-w-7xl mx-auto px-5 md:px-6 pt-20 pb-10">
-            <div class="grid md:grid-cols-12 gap-10">
-                <div class="md:col-span-5">
-                    <div class="flex items-center gap-4 text-white">
-                        <div class="w-10 h-10 bg-emerald-500 rounded-2xl flex items-center justify-center text-3xl">JED</div>
-                        <div class="heading-font text-2xl font-bold" data-key="journal-name-short">JED</div>
-                    </div>
-                    <p class="mt-6 max-w-xs text-sm" data-key="footer-desc">
-                        Advancing green economy research since 2022 • Tashkent, Uzbekistan
-                    </p>
-                    <div class="mt-8 flex gap-6 text-2xl">
-                        <i class="fab fa-facebook hover:text-emerald-400 cursor-pointer"></i>
-                        <i class="fab fa-x-twitter hover:text-emerald-400 cursor-pointer"></i>
-                        <i class="fab fa-linkedin hover:text-emerald-400 cursor-pointer"></i>
-                    </div>
-                </div>
-                
-                <div class="md:col-span-2">
-                    <div class="uppercase text-xs tracking-widest mb-6 text-white/60" data-key="footer-quick">Quick Links</div>
-                    <div class="space-y-4 text-sm">
-                        <a href="#" onclick="navigateTo('about'); return false;" class="block hover:text-white" data-key="nav-about">About Us</a>
-                        <a href="#" onclick="navigateTo('editorial'); return false;" class="block hover:text-white" data-key="nav-editorial">Editorial Board</a>
-                        <a href="#" onclick="navigateTo('submission'); return false;" class="block hover:text-white" data-key="nav-submit">For Authors</a>
-                    </div>
-                </div>
-                
-                <div class="md:col-span-2">
-                    <div class="uppercase text-xs tracking-widest mb-6 text-white/60" data-key="footer-journal">Journal</div>
-                    <div class="space-y-4 text-sm">
-                        <a href="#" onclick="navigateTo('current'); return false;" class="block hover:text-white" data-key="nav-current">Current Issue</a>
-                        <a href="#" onclick="navigateTo('archive'); return false;" class="block hover:text-white" data-key="nav-archive">Archives</a>
-                        <a href="#" class="block hover:text-white">Most Cited</a>
-                    </div>
-                </div>
-                
-                <div class="md:col-span-3">
-                    <div class="uppercase text-xs tracking-widest mb-6 text-white/60" data-key="footer-contact">Contact</div>
-                    <div class="text-sm space-y-2">
-                        <p>Center for Green Development Studies</p>
-                        <p>University Avenue 12, Tashkent 100095, Uzbekistan</p>
-                        <p class="mt-6">
-                            <a href="mailto:editor@jed.uz" class="hover:text-white">editor@jed.uz</a>
-                        </p>
-                        <p>+998 71 244 88 99</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="border-t border-white/10 mt-20 pt-8 text-xs flex flex-col md:flex-row justify-between items-center gap-4">
-                <div>© 2026 Journal of Green Economy and Development. All rights reserved.</div>
-                <div class="flex gap-6 text-xs">
-                    <a href="#" class="hover:text-white">Privacy</a>
-                    <a href="#" class="hover:text-white">Ethics Policy</a>
-                    <a href="#" class="hover:text-white">Terms</a>
-                </div>
-                <div class="text-emerald-400 text-xs">Made with ❤️ in Uzbekistan</div>
-            </div>
+          <div id="about-cards" class="grid gap-4 sm:grid-cols-2"></div>
         </div>
-    </footer>
+      </div>
+    </section>
 
-    <script>
-        // Translation database - FULL
-        const translations = {
-            en: {
-                "journal-name": "Journal of Green Economy",
-                "journal-name-short": "JED",
-                "journal-subtitle": "ISSN 2789-4320 • Open Access • Peer-Reviewed",
-                "nav-home": "Home",
-                "nav-about": "About Us",
-                "nav-editorial": "Editorial Board",
-                "nav-submit": "Submit Manuscript",
-                "nav-current": "Current Issue",
-                "nav-archive": "Archives",
-                "search": "Search Journal",
-                "submit-btn": "Submit Now",
-                "hero-tag": "Vol. 5 • No. 1 • March 2026",
-                "hero-title": "Green Economy.<br>Real Development.",
-                "hero-subtitle": "Open-access, peer-reviewed journal publishing cutting-edge research on sustainable economics, green innovation and development policy in Central Asia and beyond.",
-                "hero-current": "Browse Current Issue",
-                "hero-submit": "Submit Your Paper",
-                "stat-1": "128",
-                "stat-1-label": "Articles Published",
-                "stat-2": "47",
-                "stat-2-label": "Countries Represented",
-                "stat-3": "3.8",
-                "stat-3-label": "Impact Factor (2025)",
-                "stat-4": "21",
-                "stat-4-label": "Days Average Review",
-                "about-snippet-title": "About the Journal",
-                "about-snippet-text": "JED is an international, open-access, peer-reviewed journal dedicated to advancing research on green economy transformation, sustainable development goals, and innovative economic policies. Published by the Center for Green Development Studies (Tashkent), we welcome submissions from scholars worldwide.",
-                "about-title": "About Us",
-                "about-full-text": "<p>The Journal of Green Economy and Development (JED) is a multidisciplinary, open-access journal founded in 2022 in Tashkent, Uzbekistan. Our mission is to bridge academic research and real-world policy on sustainable economic growth, green finance, circular economy, climate resilience, and digital transformation in emerging markets.</p><p>We publish original research articles, review papers, policy briefs, and case studies. All articles undergo double-blind peer review and are published under Creative Commons CC-BY 4.0 license.</p><h4 class='mt-12 text-2xl font-semibold'>Aims &amp; Scope</h4><ul class='list-disc pl-6 space-y-2'><li>Green finance and sustainable investment</li><li>Climate change economics and policy</li><li>Circular economy and resource efficiency</li><li>Digital economy for sustainable development</li><li>Regional development in Central Asia</li></ul>",
-                "editorial-title": "Editorial Board",
-                "editorial-subtitle": "Distinguished scholars and experts shaping the future of green economy research",
-                "submission-title": "Submit Your Manuscript",
-                "submission-step1": "1. Check Author Guidelines",
-                "submission-step2": "2. Prepare your manuscript (Word/PDF, max 10 000 words)",
-                "submission-btn": "Go to Online Submission System",
-                "current-issue-label": "March 2026 • Vol. 5 No. 1",
-                "current-issue-title": "Current Issue",
-                "current-full-title": "Current Issue",
-                "archive-title": "Archives",
-                "footer-desc": "Advancing green economy research since 2022 • Tashkent, Uzbekistan",
-                "footer-quick": "Quick Links",
-                "footer-journal": "Journal",
-                "footer-contact": "Contact"
-            },
-            uz: {
-                "journal-name": "Yashil Iqtisodiyot Jurnali",
-                "journal-name-short": "YITJ",
-                "journal-subtitle": "ISSN 2789-4320 • Ochiq kirish • Peer-review",
-                "nav-home": "Bosh sahifa",
-                "nav-about": "Biz haqimizda",
-                "nav-editorial": "Tahririyat kengashi",
-                "nav-submit": "Maqola yuborish",
-                "nav-current": "Joriy son",
-                "nav-archive": "Arxiv",
-                "search": "Jurnalni qidirish",
-                "submit-btn": "Hozir yuborish",
-                "hero-tag": "5-jild • 1-son • 2026-yil mart",
-                "hero-title": "Yashil iqtisodiyot.<br>Haqiqiy taraqqiyot.",
-                "hero-subtitle": "Ochiq kirish, peer-review jurnali. Markaziy Osiyo va undan tashqarida barqaror iqtisodiyot, yashil innovatsiyalar va rivojlanish siyosati bo'yicha zamonaviy tadqiqotlar.",
-                "hero-current": "Joriy sonni ko'rish",
-                "hero-submit": "Maqolangizni yuboring",
-                "stat-1": "128",
-                "stat-1-label": "Chop etilgan maqolalar",
-                "stat-2": "47",
-                "stat-2-label": "Mamlakatlar soni",
-                "stat-3": "3.8",
-                "stat-3-label": "Impact Factor (2025)",
-                "stat-4": "21",
-                "stat-4-label": "O'rtacha ko'rib chiqish kuni",
-                "about-snippet-title": "Jurnal haqida",
-                "about-snippet-text": "YITJ — xalqaro ochiq kirishli, peer-review jurnali. Yashil iqtisodiyot transformatsiyasi, barqaror rivojlanish maqsadlari va innovatsion siyosat bo'yicha tadqiqotlarni rivojlantirishga bag'ishlangan. Toshkentdagi Yashil Rivojlanish Tadqiqotlari Markazi tomonidan nashr etiladi.",
-                "about-title": "Biz haqimizda",
-                "about-full-text": "<p>Yashil Iqtisodiyot va Taraqqiyot Jurnali (YITJ) 2022-yilda Toshkentda tashkil etilgan ko'p tarmoqli ochiq kirish jurnali. Bizning maqsadimiz akademik tadqiqot va real siyosatni barqaror iqtisodiy o'sish, yashil moliya, doira iqtisodiyoti, iqlim chidamliligi va raqamli transformatsiya yo'nalishida bog'lashdir.</p><p>Biz original ilmiy maqolalar, sharhlar, siyosiy qisqacha ma'lumotlar va case study'larni nashr etamiz.</p>",
-                "editorial-title": "Tahririyat kengashi",
-                "editorial-subtitle": "Yashil iqtisodiyot tadqiqotlarini shakllantiruvchi taniqli olimlar",
-                "submission-title": "Maqolangizni yuboring",
-                "submission-step1": "1. Muallif ko'rsatmalarini o'qing",
-                "submission-step2": "2. Maqolangizni tayyorlang (Word/PDF, 10 000 so'zgacha)",
-                "submission-btn": "Onlayn yuborish tizimiga o'tish",
-                "current-issue-label": "2026-yil mart • 5-jild 1-son",
-                "current-issue-title": "Joriy son",
-                "current-full-title": "Joriy son",
-                "archive-title": "Arxiv",
-                "footer-desc": "2022-yildan buyon yashil iqtisodiyot tadqiqotlarini rivojlantirish • Toshkent, O'zbekiston",
-                "footer-quick": "Tezkor havolalar",
-                "footer-journal": "Jurnal",
-                "footer-contact": "Aloqa"
-            },
-            ru: {
-                "journal-name": "Журнал Зеленой Экономики",
-                "journal-name-short": "ЖЗЭР",
-                "journal-subtitle": "ISSN 2789-4320 • Открытый доступ • Рецензируемый",
-                "nav-home": "Главная",
-                "nav-about": "О нас",
-                "nav-editorial": "Редколлегия",
-                "nav-submit": "Отправить рукопись",
-                "nav-current": "Текущий выпуск",
-                "nav-archive": "Архив",
-                "search": "Поиск по журналу",
-                "submit-btn": "Отправить сейчас",
-                "hero-tag": "Том 5 • №1 • Март 2026",
-                "hero-title": "Зелёная экономика.<br>Реальное развитие.",
-                "hero-subtitle": "Открытый доступ, рецензируемый журнал. Передовые исследования в области устойчивой экономики, зелёных инноваций и политики развития в Центральной Азии и за её пределами.",
-                "hero-current": "Просмотреть текущий выпуск",
-                "hero-submit": "Отправить статью",
-                "stat-1": "128",
-                "stat-1-label": "Опубликовано статей",
-                "stat-2": "47",
-                "stat-2-label": "Стран-участниц",
-                "stat-3": "3.8",
-                "stat-3-label": "Импакт-фактор (2025)",
-                "stat-4": "21",
-                "stat-4-label": "Дней на рецензию",
-                "about-snippet-title": "О журнале",
-                "about-snippet-text": "ЖЗЭР — международный журнал открытого доступа, рецензируемый, посвящённый исследованиям трансформации зелёной экономики, Целей устойчивого развития и инновационной экономической политики.",
-                "about-title": "О нас",
-                "about-full-text": "<p>Журнал Зеленой Экономики и Развития (ЖЗЭР) основан в 2022 году в Ташкенте. Мы объединяем науку и политику в области устойчивого роста, зелёных финансов, циркулярной экономики и цифровой трансформации.</p>",
-                "editorial-title": "Редакционная коллегия",
-                "editorial-subtitle": "Выдающиеся учёные и эксперты, формирующие будущее исследований зелёной экономики",
-                "submission-title": "Отправить рукопись",
-                "submission-step1": "1. Ознакомьтесь с рекомендациями для авторов",
-                "submission-step2": "2. Подготовьте рукопись (Word/PDF, до 10 000 слов)",
-                "submission-btn": "Перейти в систему онлайн-подачи",
-                "current-issue-label": "Март 2026 • Том 5 №1",
-                "current-issue-title": "Текущий выпуск",
-                "current-full-title": "Текущий выпуск",
-                "archive-title": "Архив",
-                "footer-desc": "Развиваем исследования зелёной экономики с 2022 года • Ташкент, Узбекистан",
-                "footer-quick": "Быстрые ссылки",
-                "footer-journal": "Журнал",
-                "footer-contact": "Контакты"
-            }
-        };
+    <section id="issue" class="section-offset border-y border-slate-200 bg-white py-14 sm:py-16 lg:py-20">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+          <div>
+            <p id="current-kicker" class="text-sm font-semibold uppercase tracking-[0.18em] text-brand"></p>
+            <h2 id="current-title" class="mt-4 text-3xl font-bold text-slate-900 sm:text-4xl"></h2>
+            <p id="current-text" class="mt-5 max-w-3xl text-base leading-8 text-slate-600 sm:text-lg"></p>
+          </div>
+          <a id="current-download" href="journals/jurnal 1-son.docx" download class="inline-flex items-center justify-center rounded-full bg-brand px-6 py-3.5 text-sm font-semibold text-white shadow-soft transition hover:bg-brandDark"></a>
+        </div>
 
-        let currentLang = 'en';
+        <div class="mt-10 grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+          <div class="rounded-[28px] border border-slate-200 bg-slate-50 p-6 shadow-soft sm:p-8">
+            <p id="details-title" class="text-sm font-semibold uppercase tracking-[0.18em] text-brand"></p>
+            <div id="details-grid" class="mt-6 space-y-4"></div>
+          </div>
 
-        function switchLang(lang) {
-            currentLang = lang;
-            document.querySelectorAll('[data-key]').forEach(el => {
-                const key = el.getAttribute('data-key');
-                if (translations[lang] && translations[lang][key]) {
-                    el.innerHTML = translations[lang][key];
-                }
-            });
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.classList.toggle('active', btn.id === `lang-${lang}`);
-            });
+          <div class="rounded-[28px] border border-slate-200 bg-white p-6 shadow-soft sm:p-8">
+            <div class="flex items-center justify-between gap-4">
+              <p id="articles-title" class="text-sm font-semibold uppercase tracking-[0.18em] text-brand"></p>
+              <span id="articles-count" class="rounded-full bg-brandSoft px-3 py-1 text-xs font-bold text-brandDark"></span>
+            </div>
+            <div id="articles-list" class="mt-6 divide-y divide-slate-200"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="archive" class="section-offset py-14 sm:py-16 lg:py-20">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+          <div>
+            <p id="archive-kicker" class="text-sm font-semibold uppercase tracking-[0.18em] text-brand"></p>
+            <h2 id="archive-title" class="mt-4 text-3xl font-bold text-slate-900 sm:text-4xl"></h2>
+            <p id="archive-text" class="mt-5 max-w-3xl text-base leading-8 text-slate-600 sm:text-lg"></p>
+          </div>
+        </div>
+
+        <div id="archive-cards" class="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3"></div>
+      </div>
+    </section>
+
+    <section id="authors" class="section-offset border-y border-slate-200 bg-white py-14 sm:py-16 lg:py-20">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid gap-8 lg:grid-cols-[1fr_1fr]">
+          <div>
+            <p id="authors-kicker" class="text-sm font-semibold uppercase tracking-[0.18em] text-brand"></p>
+            <h2 id="authors-title" class="mt-4 text-3xl font-bold text-slate-900 sm:text-4xl"></h2>
+            <p id="authors-text" class="mt-5 max-w-3xl text-base leading-8 text-slate-600 sm:text-lg"></p>
+
+            <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+              <a id="authors-submit" href="https://t.me/Nazrullaevich" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-full bg-brand px-6 py-3.5 text-sm font-semibold text-white shadow-soft transition hover:bg-brandDark"></a>
+              <a id="authors-contact" href="#contact" class="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-3.5 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"></a>
+            </div>
+          </div>
+
+          <div id="authors-cards" class="grid gap-4 sm:grid-cols-2"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="board" class="section-offset py-14 sm:py-16 lg:py-20">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+          <div>
+            <p id="board-kicker" class="text-sm font-semibold uppercase tracking-[0.18em] text-brand"></p>
+            <h2 id="board-title" class="mt-4 text-3xl font-bold text-slate-900 sm:text-4xl"></h2>
+            <p id="board-text" class="mt-5 max-w-3xl text-base leading-8 text-slate-600 sm:text-lg"></p>
+          </div>
+        </div>
+
+        <div class="mt-10 grid gap-5 xl:grid-cols-[0.95fr_1.05fr]">
+          <div id="board-leads" class="grid gap-5 md:grid-cols-3"></div>
+          <div class="rounded-[28px] border border-slate-200 bg-white p-6 shadow-soft sm:p-8">
+            <div class="flex items-center justify-between gap-4">
+              <p id="board-members-title" class="text-sm font-semibold uppercase tracking-[0.18em] text-brand"></p>
+              <span id="board-members-count" class="rounded-full bg-brandSoft px-3 py-1 text-xs font-bold text-brandDark"></span>
+            </div>
+            <div id="board-members" class="mt-6 grid gap-3 sm:grid-cols-2"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact" class="section-offset border-t border-slate-200 bg-slate-950 text-white">
+    <div class="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8 lg:py-16">
+      <div class="grid gap-8 lg:grid-cols-[1fr_1fr]">
+        <div>
+          <p id="contact-kicker" class="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-300"></p>
+          <h2 id="contact-title" class="mt-4 text-3xl font-bold sm:text-4xl"></h2>
+          <p id="contact-text" class="mt-5 max-w-2xl text-base leading-8 text-white/75 sm:text-lg"></p>
+        </div>
+
+        <div class="grid gap-4 sm:grid-cols-2">
+          <div class="rounded-[24px] border border-white/10 bg-white/5 p-6">
+            <p id="contact-email-label" class="text-sm font-semibold uppercase tracking-[0.18em] text-white/55"></p>
+            <a href="mailto:admin@tiiame.uz" class="mt-4 inline-block text-lg font-semibold text-white">admin@tiiame.uz</a>
+          </div>
+          <div class="rounded-[24px] border border-white/10 bg-white/5 p-6">
+            <p id="contact-phone-label" class="text-sm font-semibold uppercase tracking-[0.18em] text-white/55"></p>
+            <a href="tel:+998980772308" class="mt-4 inline-block text-lg font-semibold text-white">+998 98 077 23 08</a>
+          </div>
+          <div class="rounded-[24px] border border-white/10 bg-white/5 p-6">
+            <p id="contact-telegram-label" class="text-sm font-semibold uppercase tracking-[0.18em] text-white/55"></p>
+            <a href="https://t.me/Nazrullaevich" target="_blank" rel="noopener" class="mt-4 inline-block text-lg font-semibold text-white">@Nazrullaevich</a>
+          </div>
+          <div class="rounded-[24px] border border-white/10 bg-white/5 p-6">
+            <p id="contact-site-label" class="text-sm font-semibold uppercase tracking-[0.18em] text-white/55"></p>
+            <a href="https://greenfin.uz/" target="_blank" rel="noopener" class="mt-4 inline-block text-lg font-semibold text-white">greenfin.uz</a>
+          </div>
+          <div class="rounded-[24px] border border-white/10 bg-white/5 p-6 sm:col-span-2">
+            <p id="contact-address-label" class="text-sm font-semibold uppercase tracking-[0.18em] text-white/55"></p>
+            <p id="contact-address" class="mt-4 max-w-xl text-base leading-7 text-white/85"></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-10 grid gap-4 border-t border-white/10 pt-6 text-sm text-white/55 md:grid-cols-3">
+        <div>
+          <p id="footer-info-title" class="font-semibold text-white/85"></p>
+          <p id="footer-info-text" class="mt-2"></p>
+        </div>
+        <div>
+          <p id="footer-model-title" class="font-semibold text-white/85"></p>
+          <p id="footer-model-text" class="mt-2"></p>
+        </div>
+        <div>
+          <p id="footer-status-title" class="font-semibold text-white/85"></p>
+          <p id="footer-status-text" class="mt-2"></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const journalData = {
+      uz: {
+        pageTitle: 'Yashil moliya va innovatsion iqtisodiyot',
+        pageDescription: 'Yashil moliya va innovatsion iqtisodiyot ilmiy-amaliy jurnalining rasmiy sayti',
+        brandName: 'Yashil moliya va innovatsion iqtisodiyot',
+        nav: {
+          about: 'Jurnal haqida',
+          issue: 'Joriy son',
+          archive: 'Arxiv',
+          authors: 'Mualliflar uchun',
+          board: 'Tahrir hay’ati',
+          contact: 'Aloqa'
+        },
+        headerSubmit: 'Telegram orqali yuborish',
+        hero: {
+          kicker: 'Ilmiy-uslubiy jurnal',
+          title: 'Yashil moliya va innovatsion iqtisodiyot ilmiy-amaliy jurnali',
+          text: 'Jurnal zamonaviy iqtisodiyotda barqaror rivojlanish, ekologik moliya, innovatsion iqtisodiy tizimlar va raqamli transformatsiya masalalarini yoritishga qaratilgan ilmiy-amaliy nashr bo‘lib, iqtisodiyotning turli sohalarida ilmiy tadqiqot natijalarini amaliyot bilan bog‘lashga xizmat qiladi.',
+          download: '1-sonni yuklab olish',
+          submit: 'Maqolani Telegram orqali yuborish',
+          points: []
+        },
+        issueCard: {
+          label: 'Birinchi nashr',
+          title: '1-jild, 1-son',
+          summary: 'Jurnalning birinchi sonida audit, moliyaviy hisobot, yashil hisob, innovatsiya va iqtisodiy boshqaruv yo‘nalishidagi maqolalar jamlandi.',
+          featuredLabel: 'Tanlangan maqolalar',
+          featuredDownload: '1-sonni yuklab olish',
+          featuredContact: 'Muharririyat bilan bog‘lanish',
+          featured: [
+            ['MHXS asosida daromadlar va xarajatlar hisobi', 'Aktsiyadorlik jamiyatlari misolida nazariy-uslubiy yondashuv.'],
+            ['Daromad solig‘i hisobi bo‘yicha xorijiy tajriba', 'IAS 12 va milliy amaliyot o‘rtasidagi bog‘liqlik.'],
+            ['Green accounting va ekologik audit', 'O‘zbekiston sharoitida amaliy integratsiya muammolari.']
+          ],
+          stats: [
+            ['Nashr turi', 'Elektron ilmiy-uslubiy jurnal'],
+            ['Chastotasi', 'Yiliga 6 marta'],
+            ['Tillar', 'UZ / EN / RU'],
+            ['Joriy holat', '1-jild, 1-son tayyor']
+          ]
+        },
+        about: {
+          kicker: 'Jurnal haqida',
+          title: 'Ilmiy yo‘nalish, amaliy ahamiyat va barqaror rivojlanish tamoyillariga tayangan jurnal',
+          text: '“Yashil moliya va innovatsion iqtisodiyot” ilmiy-amaliy jurnali zamonaviy iqtisodiyotda barqaror rivojlanish, ekologik moliya, innovatsion iqtisodiy tizimlar va raqamli transformatsiya masalalarini yoritishga qaratilgan ilmiy platforma hisoblanadi. Jurnalning asosiy maqsadi iqtisodiyotning turli sohalarida yashil moliya mexanizmlarini rivojlantirish, innovatsion boshqaruv yondashuvlarini joriy etish hamda ilmiy tadqiqotlar natijalarini amaliyotga tatbiq etishga xizmat qiluvchi ilmiy ishlanmalarni keng jamoatchilikka yetkazishdan iborat.',
+          tags: ['Yashil moliya', 'Innovatsion iqtisodiyot', 'Audit', 'MHXS', 'Barqaror rivojlanish', 'Ilmiy maqolalar'],
+          cards: [
+            ['Jurnal maqsadi', 'Jurnal ilmiy tadqiqotlar natijalarini amaliyot bilan bog‘lash, yashil moliya va innovatsion iqtisodiyot bo‘yicha dolzarb ilmiy ishlanmalarni ommalashtirishga qaratilgan.'],
+            ['Asosiy yo‘nalishlar', 'Barqaror rivojlanish, ekologik moliya, audit, MHXS, raqamli transformatsiya, boshqaruv va iqtisodiy tahlil jurnalning ustuvor mavzulari hisoblanadi.'],
+            ['Ta’sischi', 'Jurnal “Toshkent irrigatsiya va qishloq xo‘jaligini mexanizatsiyalash muhandislari instituti” milliy tadqiqot universiteti ta’sischiligida nashr etiladi.'],
+            ['Nashr tartibi', 'Jurnal elektron shaklda yiliga 6 marta chop etiladi hamda ilmiy maqolalar, tahliliy ishlanmalar va amaliy tavsiyalarni qamrab oladi.']
+          ]
+        },
+        current: {
+          kicker: 'Joriy son',
+          title: '1-jild, 1-son, 2026',
+          text: 'Jurnalning 2026 yilgi 1-jild, 1-sonida audit, moliyaviy hisobot, soliq hisobi, yashil hisob, ichki nazorat, innovatsion rivojlanish va oliy ta’lim sifati bilan bog‘liq ilmiy maqolalar jamlangan.',
+          download: '1-sonni yuklab olish',
+          detailsTitle: 'Nashr ma’lumotlari',
+          details: [
+            ['Ta’sischi', '“Toshkent irrigatsiya va qishloq xo‘jaligini mexanizatsiyalash muhandislari instituti” milliy tadqiqot universiteti'],
+            ['Ro‘yxatga olingan', '20.02.2024, № 227647'],
+            ['UDK', '330.15:336'],
+            ['Nashr modeli', 'Elektron shakl, yiliga 6 marta'],
+            ['Maqolalar qabuli', 'Telegram: @Nazrullaevich'],
+            ['Mas’uliyat', 'Jurnalda chop etilgan ma’lumot va keltirilgan dalillarning aniqligi uchun muallif javobgardir']
+          ],
+          articlesTitle: '1-son mundarijasi',
+          countLabel: '13 maqola'
+        },
+        archive: {
+          kicker: 'Arxiv',
+          title: 'Arxiv kichik, lekin tartibli boshlanadi.',
+          text: 'Hozircha jurnalning birinchi soni mavjud. Shuning uchun arxiv bo‘limi bo‘sh ko‘rinmasin deb, joriy son va keyingi sonlar uchun joylashtirish logikasi oldindan tayyorlab qo‘yildi.',
+          cards: [
+            ['2026', '1-jild', 'Jurnalning birinchi soni. To‘liq elektron nashr foydalanuvchilar uchun yuklab olishga tayyor.', '1-son', 'Nashr etiladi', 'Yuklab olish'],
+            ['Keyingi son', '1-jild', 'Navbatdagi sonlar jurnalning tasdiqlangan nashr rejasiga muvofiq joylashtirib boriladi.', '2-son', 'Kutilmoqda', 'Tez orada'],
+            ['Arxiv fondi', 'Kelgusi nashrlar', 'Jurnalning keyingi sonlari, maxsus mavzuli to‘plamlari va alohida nashrlari shu bo‘limda jamlanadi.', 'Arxiv', 'To‘ldiriladi', 'Kutilmoqda']
+          ]
+        },
+        authors: {
+          kicker: 'Mualliflar uchun',
+          title: 'Maqola yuborish tartibi va muharririyat bilan aloqa',
+          text: 'Mualliflar jurnal yo‘nalishiga mos ilmiy maqolalarni muharririyatga Telegram orqali yuborishlari mumkin. Tahririyat maqolani ko‘rib chiqish, texnik talablar, rasmiylashtirish va keyingi bosqichlar bo‘yicha muallifga qo‘shimcha ko‘rsatmalar beradi.',
+          submit: 'Telegram orqali yuborish',
+          contact: 'Aloqa bo‘limi',
+          cards: [
+            ['Mavzu mosligi', 'Maqolalar iqtisodiyot, moliya, audit, yashil hisob va innovatsion rivojlanish yo‘nalishlariga mos bo‘lishi kerak.'],
+            ['Yuborish tartibi', 'Maqola va savollar Telegram orqali @Nazrullaevich manziliga yuboriladi.'],
+            ['Joriy son', 'Sayt birinchi nashr uchun tuzilgan, shuning uchun barcha asosiy tugmalar joriy songa yo‘naltirilgan.'],
+            ['Aloqa va muvofiqlashtirish', 'Maqolani yuborishdan oldin muallif jurnal yo‘nalishi va rasmiylashtirish masalalari bo‘yicha muharririyat bilan bog‘lanishi tavsiya etiladi.']
+          ]
+        },
+        board: {
+          kicker: 'Tahrir hay’ati',
+          title: 'Muharririyat tarkibi ko‘rinib turishi ishonch beradi.',
+          text: 'Jurnal faoliyati bosh muharrir, bosh muharrir o‘rinbosari, mas’ul kotib hamda tahrir hay’ati a’zolari ishtirokida tashkil etiladi. Mazkur tarkib jurnalning ilmiy siyosati, tahririy jarayon va nashr sifatini ta’minlashga xizmat qiladi.',
+          leads: [
+            ['Bosh muharrir', 'i.f.f.d., dots. X.N. Abdullayev', 'Jurnal yo‘nalishi va ilmiy sifat nazoratiga mas’ul.'],
+            ['Bosh muharrir o‘rinbosari', 'i.f.d., dots. G.M. Raximova', 'Tahririy jarayon va ilmiy baholashni muvofiqlashtiradi.'],
+            ['Mas’ul kotib', 'i.f.f.d. N.D. Maxmudova', 'Mualliflar bilan aloqa va nashr tayyorgarligini yuritadi.']
+          ],
+          membersTitle: 'Tahrir hay’ati a’zolari',
+          membersCount: '11 a’zo'
+        },
+        contact: {
+          kicker: 'Aloqa',
+          title: 'Muharririyat va nashr ma’lumotlari',
+          text: 'Muharririyat bilan bog‘lanish uchun rasmiy manzil, elektron pochta, telefon va Telegram manzili quyida keltirilgan. Jurnal faoliyati, maqola topshirish va boshqa tashkiliy masalalar bo‘yicha murojaatlar shu aloqa kanallari orqali qabul qilinadi.',
+          emailLabel: 'Elektron pochta',
+          phoneLabel: 'Telefon',
+          telegramLabel: 'Telegram',
+          siteLabel: 'Jurnal sayti',
+          addressLabel: 'Manzil',
+          address: 'O‘zbekiston Respublikasi, Toshkent shahar, Qori Niyoziy ko‘chasi, 39, 100000',
+          footerInfoTitle: 'Jurnal ma’lumoti',
+          footerInfoText: 'Ro‘yxatga olingan: 20.02.2024, № 227647',
+          footerModelTitle: 'Nashr modeli',
+          footerModelText: 'Elektron ilmiy-uslubiy jurnal, yiliga 6 marta',
+          footerStatusTitle: 'Joriy nashr',
+          footerStatusText: '2026 yil, 1-jild, 1-son'
         }
-
-        // Sample articles
-        const sampleArticles = [
-            {
-                title: "Green Bonds as a Tool for Financing Sustainable Infrastructure in Uzbekistan",
-                author: "A. Karimova, B. Tursunov",
-                date: "15 Feb 2026",
-                abstract: "This study analyzes the potential of green bonds in attracting foreign investment for renewable energy projects."
-            },
-            {
-                title: "Digital Twin Technology for Smart Cities: Case Study from Tashkent",
-                author: "S. Ismailov, M. Ahmedova",
-                date: "10 Feb 2026",
-                abstract: "The paper explores the application of digital twin models for optimizing urban transport and energy consumption."
-            },
-            {
-                title: "Circular Economy Practices in Central Asian Textile Industry",
-                author: "N. Rakhmonov",
-                date: "05 Feb 2026",
-                abstract: "Empirical analysis of recycling rates and policy recommendations for Uzbekistan's textile sector."
-            }
-        ];
-
-        function renderHomeArticles() {
-            const container = document.getElementById('home-article-grid');
-            container.innerHTML = '';
-            sampleArticles.forEach((article, i) => {
-                const div = document.createElement('div');
-                div.className = `article-card bg-white rounded-3xl overflow-hidden shadow`;
-                div.innerHTML = `
-                    <div class="h-48 bg-gradient-to-br from-emerald-700 to-teal-600 flex items-center justify-center text-white text-4xl font-light">${i+1}</div>
-                    <div class="p-6">
-                        <div class="text-xs text-emerald-600 font-medium">${article.date}</div>
-                        <h4 class="font-semibold text-lg leading-tight mt-3 line-clamp-3">${article.title}</h4>
-                        <p class="text-sm text-gray-500 mt-4 line-clamp-2">${article.abstract}</p>
-                        <div class="flex justify-between items-center mt-6 text-xs">
-                            <span class="text-gray-500">${article.author}</span>
-                            <span class="text-emerald-600 cursor-pointer hover:underline">Read →</span>
-                        </div>
-                    </div>
-                `;
-                container.appendChild(div);
-            });
+      },
+      en: {
+        pageTitle: 'Green Finance and Innovative Economy',
+        pageDescription: 'Official website of the scientific and practical journal Green Finance and Innovative Economy',
+        brandName: 'Green Finance and Innovative Economy',
+        nav: {
+          about: 'About',
+          issue: 'Current Issue',
+          archive: 'Archive',
+          authors: 'For Authors',
+          board: 'Editorial Board',
+          contact: 'Contact'
+        },
+        headerSubmit: 'Submit via Telegram',
+        hero: {
+          kicker: 'Scientific-methodological journal',
+          title: 'Green Finance and Innovative Economy scientific and practical journal',
+          text: 'The journal is a scientific and practical publication dedicated to sustainable development, ecological finance, innovative economic systems, and digital transformation. It aims to connect academic research with practical implementation across different sectors of the economy.',
+          download: 'Download Issue 1',
+          submit: 'Submit article via Telegram',
+          points: []
+        },
+        issueCard: {
+          label: 'First publication',
+          title: 'Volume 1, Issue 1',
+          summary: 'The first issue brings together articles on audit, financial reporting, green accounting, innovation, and economic management.',
+          featuredLabel: 'Selected articles',
+          featuredDownload: 'Download Issue 1',
+          featuredContact: 'Contact the editorial office',
+          featured: [
+            ['Revenue and expense accounting under IFRS', 'A theoretical and methodological approach based on joint-stock companies.'],
+            ['Foreign experience in income tax accounting', 'A focused comparison between IAS 12 and national practice.'],
+            ['Green accounting and environmental audit', 'Operational integration issues in the context of Uzbekistan.']
+          ],
+          stats: [
+            ['Publication type', 'Electronic scientific-methodological journal'],
+            ['Frequency', '6 times per year'],
+            ['Languages', 'UZ / EN / RU'],
+            ['Current status', 'Volume 1, Issue 1 ready']
+          ]
+        },
+        about: {
+          kicker: 'About the journal',
+          title: 'A journal focused on scientific relevance, practical value, and sustainable economic development',
+          text: '“Green Finance and Innovative Economy” is a scientific and practical journal devoted to sustainable development, ecological finance, innovative economic systems, and digital transformation in the modern economy. The main purpose of the journal is to promote scientific works that support the development of green finance mechanisms, the introduction of innovative management approaches, and the practical application of research results across different sectors of the economy.',
+          tags: ['Green finance', 'Innovative economy', 'Audit', 'IFRS', 'Sustainable development', 'Research articles'],
+          cards: [
+            ['Journal purpose', 'The journal is intended to present scientific works that connect theory and practice in green finance, innovative economy, and related fields.'],
+            ['Core themes', 'Its core themes include sustainable development, ecological finance, audit, IFRS, digital transformation, management, and applied economic analysis.'],
+            ['Founder', 'The journal is published under the founder institution Tashkent Institute of Irrigation and Agricultural Mechanization Engineers National Research University.'],
+            ['Publication format', 'It is issued in electronic form 6 times per year and includes research articles, analytical studies, and practice-oriented materials.']
+          ]
+        },
+        current: {
+          kicker: 'Current issue',
+          title: 'Volume 1, Issue 1, 2026',
+          text: 'Volume 1, Issue 1 for 2026 brings together scholarly articles on audit, financial reporting, tax accounting, green accounting, internal control, innovation, and the quality of higher education.',
+          download: 'Download Issue 1',
+          detailsTitle: 'Issue details',
+          details: [
+            ['Founder', 'Tashkent Institute of Irrigation and Agricultural Mechanization Engineers National Research University'],
+            ['Registered', '20.02.2024, No. 227647'],
+            ['UDC', '330.15:336'],
+            ['Publishing model', 'Electronic format, 6 issues per year'],
+            ['Submission channel', 'Telegram: @Nazrullaevich'],
+            ['Responsibility note', 'Authors are responsible for the accuracy of facts and materials published in the journal']
+          ],
+          articlesTitle: 'Table of contents',
+          countLabel: '13 articles'
+        },
+        archive: {
+          kicker: 'Archive',
+          title: 'The archive starts small, but it starts in order.',
+          text: 'At the moment the journal has only its first issue. So the archive section is designed to present the current issue properly while also reserving space for future issues and special collections.',
+          cards: [
+            ['2026', 'Volume 1', 'The first issue of the journal. The complete electronic edition is ready for readers to download.', 'Issue 1', 'Published', 'Download'],
+            ['Next issue', 'Volume 1', 'Future issues will be added here in accordance with the approved publication schedule.', 'Issue 2', 'Expected', 'Coming soon'],
+            ['Archive fund', 'Future publications', 'Subsequent issues, thematic collections, and special editions of the journal will be presented in this section.', 'Archive', 'In preparation', 'Pending']
+          ]
+        },
+        authors: {
+          kicker: 'For authors',
+          title: 'Submission procedure and communication with the editorial office',
+          text: 'Authors may submit manuscripts related to the scope of the journal through Telegram. After initial contact, the editorial office provides further instructions regarding review, formatting requirements, and the next stages of publication.',
+          submit: 'Submit via Telegram',
+          contact: 'Contact section',
+          cards: [
+            ['Scope fit', 'Articles should match economics, finance, audit, green accounting, or innovation-related themes.'],
+            ['Submission route', 'Manuscripts and questions are currently sent to @Nazrullaevich on Telegram.'],
+            ['Current issue focus', 'The site is built around the first publication, so the main actions direct users to the active issue.'],
+            ['Communication and coordination', 'Before submission, authors are encouraged to contact the editorial office regarding scope, formatting, and organizational matters.']
+          ]
+        },
+        board: {
+          kicker: 'Editorial board',
+          title: 'A visible editorial structure makes the journal more credible.',
+          text: 'The work of the journal is organized through the editor-in-chief, deputy editor-in-chief, executive secretary, and members of the editorial board. This structure supports academic policy, editorial workflow, and publication quality.',
+          leads: [
+            ['Editor-in-Chief', 'PhD, Assoc. Prof. X.N. Abdullayev', 'Responsible for the academic direction and quality control of the journal.'],
+            ['Deputy Editor-in-Chief', 'DSc, Assoc. Prof. G.M. Raximova', 'Coordinates editorial workflow and scientific evaluation.'],
+            ['Executive Secretary', 'PhD N.D. Maxmudova', 'Handles author communication and publication preparation.']
+          ],
+          membersTitle: 'Editorial board members',
+          membersCount: '11 members'
+        },
+        contact: {
+          kicker: 'Contact',
+          title: 'Editorial office and publication details',
+          text: 'The official address, email, phone number, Telegram contact, and website of the journal are provided below for communication with the editorial office and for publication-related inquiries.',
+          emailLabel: 'Email',
+          phoneLabel: 'Phone',
+          telegramLabel: 'Telegram',
+          siteLabel: 'Journal website',
+          addressLabel: 'Address',
+          address: '39 Qori Niyoziy Street, Tashkent, 100000, Republic of Uzbekistan',
+          footerInfoTitle: 'Journal information',
+          footerInfoText: 'Registered on 20.02.2024, No. 227647',
+          footerModelTitle: 'Publishing model',
+          footerModelText: 'Electronic scientific-methodological journal, 6 issues per year',
+          footerStatusTitle: 'Current issue',
+          footerStatusText: '2026, Volume 1, Issue 1'
         }
-
-        function renderCurrentIssue() {
-            const container = document.getElementById('current-issue-grid');
-            container.innerHTML = '';
-            sampleArticles.forEach(article => {
-                const div = document.createElement('div');
-                div.className = `article-card bg-white rounded-3xl p-8 shadow`;
-                div.innerHTML = `
-                    <div class="flex justify-between">
-                        <span class="px-4 py-1 bg-emerald-100 text-emerald-700 text-xs rounded-3xl">Research Article</span>
-                        <span class="text-xs text-gray-400">${article.date}</span>
-                    </div>
-                    <h4 class="font-semibold text-2xl mt-6 leading-tight">${article.title}</h4>
-                    <p class="mt-4 text-gray-600">${article.abstract}</p>
-                    <div class="mt-8 flex items-center justify-between">
-                        <div>
-                            <div class="text-sm text-gray-500">${article.author}</div>
-                        </div>
-                        <button onclick="alert('Opening PDF (demo)');" class="flex items-center gap-2 text-emerald-600 text-sm font-medium">
-                            <i class="fas fa-file-pdf"></i> PDF
-                        </button>
-                    </div>
-                `;
-                container.appendChild(div);
-            });
+      },
+      ru: {
+        pageTitle: 'Зеленые финансы и инновационная экономика',
+        pageDescription: 'Официальный сайт научно-практического журнала «Зеленые финансы и инновационная экономика»',
+        brandName: 'Зеленые финансы и инновационная экономика',
+        nav: {
+          about: 'О журнале',
+          issue: 'Текущий выпуск',
+          archive: 'Архив',
+          authors: 'Авторам',
+          board: 'Редколлегия',
+          contact: 'Контакты'
+        },
+        headerSubmit: 'Отправить через Telegram',
+        hero: {
+          kicker: 'Научно-методический журнал',
+          title: 'Научно-практический журнал «Зеленые финансы и инновационная экономика»',
+          text: 'Журнал является научно-практическим изданием, посвященным устойчивому развитию, экологическим финансам, инновационным экономическим системам и цифровой трансформации. Его задача состоит в том, чтобы связывать научные исследования с практикой в различных секторах экономики.',
+          download: 'Скачать выпуск 1',
+          submit: 'Отправить статью через Telegram',
+          points: []
+        },
+        issueCard: {
+          label: 'Первая публикация',
+          title: 'Том 1, выпуск 1',
+          summary: 'Первый выпуск объединяет статьи по аудиту, финансовой отчетности, зеленому учету, инновациям и экономическому управлению.',
+          featuredLabel: 'Выбранные статьи',
+          featuredDownload: 'Скачать выпуск 1',
+          featuredContact: 'Связаться с редакцией',
+          featured: [
+            ['Учет доходов и расходов по МСФО', 'Теоретико-методологический подход на примере акционерных обществ.'],
+            ['Зарубежный опыт учета налога на прибыль', 'Сопоставление IAS 12 и национальной практики.'],
+            ['Green accounting и экологический аудит', 'Практические вопросы интеграции в условиях Узбекистана.']
+          ],
+          stats: [
+            ['Тип издания', 'Электронный научно-методический журнал'],
+            ['Периодичность', '6 раз в год'],
+            ['Языки', 'UZ / EN / RU'],
+            ['Текущий статус', 'Том 1, выпуск 1 готов']
+          ]
+        },
+        about: {
+          kicker: 'О журнале',
+          title: 'Журнал, ориентированный на научную значимость, практическую ценность и устойчивое экономическое развитие',
+          text: '«Зеленые финансы и инновационная экономика» является научно-практическим журналом, посвященным вопросам устойчивого развития, экологических финансов, инновационных экономических систем и цифровой трансформации современной экономики. Основная цель журнала состоит в распространении научных работ, направленных на развитие механизмов зеленого финансирования, внедрение инновационных управленческих подходов и практическое применение результатов исследований.',
+          tags: ['Зеленые финансы', 'Инновационная экономика', 'Аудит', 'МСФО', 'Устойчивое развитие', 'Научные статьи'],
+          cards: [
+            ['Цель журнала', 'Журнал предназначен для публикации научных работ, связывающих теорию и практику в сфере зеленых финансов, инновационной экономики и смежных направлений.'],
+            ['Основные темы', 'Ключевые темы включают устойчивое развитие, экологические финансы, аудит, МСФО, цифровую трансформацию, управление и прикладной экономический анализ.'],
+            ['Учредитель', 'Журнал издается при учредительстве Национального исследовательского университета Ташкентского института инженеров ирригации и механизации сельского хозяйства.'],
+            ['Формат издания', 'Журнал выходит в электронном виде 6 раз в год и включает научные статьи, аналитические исследования и практико-ориентированные материалы.']
+          ]
+        },
+        current: {
+          kicker: 'Текущий выпуск',
+          title: 'Том 1, выпуск 1, 2026',
+          text: 'Этот раздел ставит первую публикацию в центр сайта. Поскольку пока существует только один выпуск, страница показывает его метаданные, редакционную основу и полное содержание.',
+          submit: 'Подать статью в журнал',
+          detailsTitle: 'Данные выпуска',
+          details: [
+            ['Учредитель', 'Национальный исследовательский университет «Ташкентский институт инженеров ирригации и механизации сельского хозяйства»'],
+            ['Регистрация', '20.02.2024, № 227647'],
+            ['УДК', '330.15:336'],
+            ['Модель издания', 'Электронный формат, 6 выпусков в год'],
+            ['Канал подачи', 'Telegram: @Nazrullaevich'],
+            ['Примечание', 'За точность опубликованных материалов отвечает автор']
+          ],
+          articlesTitle: 'Содержание выпуска',
+          countLabel: '13 статей'
+        },
+        archive: {
+          kicker: 'Архив',
+          title: 'Архив пока небольшой, но уже выстроен правильно.',
+          text: 'Сейчас у журнала только первый выпуск. Поэтому раздел архива показывает текущий выпуск и одновременно резервирует пространство для будущих выпусков и специальных номеров.',
+          cards: [
+            ['2026', 'Том 1', 'Стартовый том и первый официальный выпуск журнала.', 'Выпуск 1', 'Активен'],
+            ['Следующий выпуск', 'Том 1', 'Этот блок зарезервирован для следующего цикла публикации.', 'Выпуск 2', 'Скоро'],
+            ['Специальные выпуски', 'Будущее', 'Место для тематических выпусков и отдельных научных сборников.', 'Спецвыпуск', 'Запланировано']
+          ]
+        },
+        authors: {
+          kicker: 'Авторам',
+          title: 'Процесс подачи короткий, понятный и соответствует текущему этапу журнала.',
+          text: 'На данном этапе статьи принимаются через Telegram. Автор готовит материал по тематике журнала, связывается с редакцией и получает дальнейшие инструкции по рассмотрению и публикации. Позже сайт можно дополнить шаблонами, политиками и этическими требованиями.',
+          submit: 'Отправить через Telegram',
+          contact: 'Раздел контактов',
+          cards: [
+            ['Соответствие тематике', 'Статьи должны относиться к экономике, финансам, аудиту, зеленому учету или инновационному развитию.'],
+            ['Маршрут подачи', 'Рукописи и вопросы пока отправляются в Telegram по адресу @Nazrullaevich.'],
+            ['Фокус на текущем выпуске', 'Сайт построен вокруг первой публикации, поэтому основные действия ведут к активному выпуску.'],
+            ['Будущее расширение', 'Позже можно добавить шаблоны, инструкции и формальные публикационные политики.']
+          ]
+        },
+        board: {
+          kicker: 'Редколлегия',
+          title: 'Видимая редакционная структура усиливает доверие к журналу.',
+          text: 'Главный редактор, его заместитель, ответственный секретарь и члены редколлегии показаны отдельно, чтобы подчеркнуть институциональную основу издания.',
+          leads: [
+            ['Главный редактор', 'PhD, доц. Х.Н. Абдуллаев', 'Отвечает за научное направление журнала и контроль качества.'],
+            ['Заместитель главного редактора', 'DSc, доц. Г.М. Рахимова', 'Координирует редакционный процесс и научную оценку материалов.'],
+            ['Ответственный секретарь', 'PhD Н.Д. Махмудова', 'Ведет коммуникацию с авторами и подготовку выпуска.']
+          ],
+          membersTitle: 'Члены редколлегии',
+          membersCount: '11 членов'
+        },
+        contact: {
+          kicker: 'Контакты',
+          title: 'Редакция и сведения об издании',
+          text: 'Кнопки подачи и связи на сайте используют именно эти контактные данные. Адрес, email, телефон, Telegram и сайт журнала собраны в одном блоке.',
+          emailLabel: 'Электронная почта',
+          phoneLabel: 'Телефон',
+          telegramLabel: 'Telegram',
+          siteLabel: 'Сайт журнала',
+          addressLabel: 'Адрес',
+          address: 'Республика Узбекистан, г. Ташкент, улица Кори Ниёзий, 39, 100000',
+          footerInfoTitle: 'Сведения о журнале',
+          footerInfoText: 'Зарегистрирован 20.02.2024, № 227647',
+          footerModelTitle: 'Модель издания',
+          footerModelText: 'Электронный научно-методический журнал, 6 выпусков в год',
+          footerStatusTitle: 'Текущий выпуск',
+          footerStatusText: '2026, том 1, выпуск 1'
         }
+      }
+    };
 
-        function renderEditorialBoard() {
-            const container = document.getElementById('editorial-grid');
-            container.innerHTML = `
-                <div class="text-center">
-                    <div class="w-40 h-40 mx-auto bg-zinc-200 rounded-3xl overflow-hidden"><img src="https://picsum.photos/id/64/300/300" class="w-full h-full object-cover"></div>
-                    <div class="mt-6 font-semibold">Prof. Dr. Dilnoza Rakhimova</div>
-                    <div class="text-xs text-emerald-600">Editor-in-Chief • Tashkent State University</div>
-                </div>
-                <div class="text-center">
-                    <div class="w-40 h-40 mx-auto bg-zinc-200 rounded-3xl overflow-hidden"><img src="https://picsum.photos/id/201/300/300" class="w-full h-full object-cover"></div>
-                    <div class="mt-6 font-semibold">Prof. Dr. Alexander Ivanov</div>
-                    <div class="text-xs text-emerald-600">Deputy Editor • Moscow State University</div>
-                </div>
-                <div class="text-center">
-                    <div class="w-40 h-40 mx-auto bg-zinc-200 rounded-3xl overflow-hidden"><img src="https://picsum.photos/id/29/300/300" class="w-full h-full object-cover"></div>
-                    <div class="mt-6 font-semibold">Dr. Fatima Alieva</div>
-                    <div class="text-xs text-emerald-600">Managing Editor • Almaty</div>
-                </div>
-            `;
-        }
+    const articles = [
+      'Ismoilov Shapaxat Sodiqovich. Aktsiyadorlik jamiyatlarida daromadlar va xarajatlar hisobini MHXS asosida takomillashtirishning nazariy-uslubiy jihatlari',
+      'Ismoilov Shapaxat Sodiqovich. Daromad solig‘i buxgalteriya hisobining xorijiy tajribasi va uni O‘zbekiston amaliyotida qo‘llash istiqbollari',
+      'Бекбаум Камила Нуржановна. Значение управления затратами в деятельности компании: управление затратами на персонал как фактор эффективности бизнеса',
+      'Abdullayev Xurshidjon Nazrullo o‘g‘li. Ichki ekologik nazorat tizimi samaradorligini kompleks baholash mexanizmi',
+      'Asfandiyorova Shakina Rustam qizi. Korxonalarda riskka asoslangan ichki audit tizimini takomillashtirishda kompleks reyting modelini joriy etish asoslari',
+      'Махмудова Наргиза Давлят қизи. Kонсолидациялашган молиявий ҳисоботни шакллантиришнинг назарий ва амалий жиҳатлари',
+      'Temirkhanova Mutabar Jurayevna. The third renessaince Uzbekistan expands opportunity for a further rise in the international innovation index',
+      'Sidiqov Dilmurod Xasanboy o‘g‘li. Auditda due diligence: qishloq xo‘jaligi sektorida iqtisodiy samaradorlikni oshiruvchi boshqaruv mexanizmi',
+      'Rakhimov Anvar Maxmarasulovich. Development of the system of auditing personnel management in the organization',
+      'Otakhonova Mokhigul Bekhzod qizi, Abdullayev Khurshidjon Nazrullo ugli. Comparative analysis of national accounting standards and IFRS',
+      'Pirmedova Xayitgul Muxammedovna. Yangi O‘zbekiston sharoitida oliy ta’lim sifatini oshirishning ahamiyati',
+      'Temirkhanova Mutabar Jurayevna. Methodological deficiencies and the integration of green accounting in Uzbekistan\'s environmental audits: an operational analysis',
+      'Satdirdinov Bakhodir Bakhtiyarovich. Issues in improving the internal audit system for lease operations'
+    ];
 
-        function navigateTo(page) {
-            document.querySelectorAll('.page').forEach(p => p.classList.add('hidden'));
-            const target = document.getElementById(`page-${page}`);
-            if (target) target.classList.remove('hidden');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
+    const boardMembers = [
+      'proff. A.A. Karimov',
+      'proff. U.A. Nurmanov',
+      'proff. A.Z. Avloqulov',
+      'proff. S.N. Tashnazarov',
+      'dots. M.Sh. Mamatqulov',
+      'dots. M.J. Temirxanova',
+      'dots. A.Z. Tabayev',
+      'dots. Sh.I. Xadjimuhammedova',
+      'dots. R.G. Tashbayeva',
+      'dots. X.U. Do‘stmuhammad',
+      'dots. D.S. Tashnazarova'
+    ];
 
-        function toggleMobileMenu() {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
-        }
+    const issueFilePath = 'journals/jurnal 1-son.docx';
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuOpen = document.getElementById('menu-open');
+    const menuClose = document.getElementById('menu-close');
+    const navLinks = document.querySelectorAll('.nav-link, .mobile-link');
+    const sections = document.querySelectorAll('section[id], footer[id]');
+    let currentLang = 'uz';
 
-        function fakeSubmit() {
-            alert('✅ Redirecting to online submission system (OJS-style demo)...\n\nIn a real website this would open your backend submission form.');
-        }
+    function card(label, value) {
+      return `<div class="rounded-2xl border border-slate-200 bg-slate-50 p-4"><p class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">${label}</p><p class="mt-2 font-semibold text-slate-900">${value}</p></div>`;
+    }
 
-        function initWebsite() {
-            renderHomeArticles();
-            renderCurrentIssue();
-            renderEditorialBoard();
-            navigateTo('home');
-            console.log('%c✅ JED Journal Frontend - FULL RESPONSIVE VERSION READY! Copy-paste complete. Works perfectly on mobile, tablet & desktop.', 'color:#00c853; font-family:monospace');
-        }
+    function renderLanguage(lang) {
+      currentLang = lang;
+      const t = journalData[lang];
+      document.documentElement.lang = lang;
+      document.title = t.pageTitle;
+      document.querySelector('meta[name="description"]').setAttribute('content', t.pageDescription);
 
-        window.onload = initWebsite;
-    </script>
+      document.getElementById('brand-name').textContent = t.brandName;
+      document.getElementById('nav-about').textContent = t.nav.about;
+      document.getElementById('nav-issue').textContent = t.nav.issue;
+      document.getElementById('nav-archive').textContent = t.nav.archive;
+      document.getElementById('nav-authors').textContent = t.nav.authors;
+      document.getElementById('nav-board').textContent = t.nav.board;
+      document.getElementById('nav-contact').textContent = t.nav.contact;
+      document.getElementById('m-nav-about').textContent = t.nav.about;
+      document.getElementById('m-nav-issue').textContent = t.nav.issue;
+      document.getElementById('m-nav-archive').textContent = t.nav.archive;
+      document.getElementById('m-nav-authors').textContent = t.nav.authors;
+      document.getElementById('m-nav-board').textContent = t.nav.board;
+      document.getElementById('m-nav-contact').textContent = t.nav.contact;
+      document.getElementById('header-submit').textContent = t.headerSubmit;
+      document.getElementById('mobile-submit').textContent = t.headerSubmit;
+
+      document.getElementById('hero-kicker').textContent = t.hero.kicker;
+      document.getElementById('hero-title').textContent = t.hero.title;
+      document.getElementById('hero-text').textContent = t.hero.text;
+      document.getElementById('hero-download').textContent = t.hero.download;
+      document.getElementById('hero-download').href = issueFilePath;
+      document.getElementById('hero-submit').textContent = t.hero.submit;
+
+      document.getElementById('issue-label').textContent = t.issueCard.label;
+      document.getElementById('issue-title').textContent = t.issueCard.title;
+      document.getElementById('issue-summary').textContent = t.issueCard.summary;
+      document.getElementById('featured-label').textContent = t.issueCard.featuredLabel;
+      document.getElementById('featured-download').textContent = t.issueCard.featuredDownload;
+      document.getElementById('featured-download').href = issueFilePath;
+      document.getElementById('featured-contact').textContent = t.issueCard.featuredContact;
+      document.getElementById('featured-list').innerHTML = t.issueCard.featured.map((item, index) => `<div class="${index < t.issueCard.featured.length - 1 ? 'border-b border-white/10 pb-4' : ''}"><p class="font-semibold">${item[0]}</p><p class="mt-1 text-sm text-white/70">${item[1]}</p></div>`).join('');
+      document.getElementById('issue-stats').innerHTML = t.issueCard.stats.map(([label, value]) => card(label, value)).join('');
+
+      document.getElementById('about-kicker').textContent = t.about.kicker;
+      document.getElementById('about-title').textContent = t.about.title;
+      document.getElementById('about-text').textContent = t.about.text;
+      document.getElementById('about-tags').innerHTML = t.about.tags.map(tag => `<span class="rounded-full bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-soft">${tag}</span>`).join('');
+      document.getElementById('about-cards').innerHTML = t.about.cards.map(([title, text]) => `<div class="rounded-[26px] border border-slate-200 bg-white p-6 shadow-soft"><h3 class="text-lg font-bold text-slate-900">${title}</h3><p class="mt-3 text-sm leading-7 text-slate-600">${text}</p></div>`).join('');
+
+      document.getElementById('current-kicker').textContent = t.current.kicker;
+      document.getElementById('current-title').textContent = t.current.title;
+      document.getElementById('current-text').textContent = t.current.text;
+      document.getElementById('current-download').textContent = t.current.download;
+      document.getElementById('current-download').href = issueFilePath;
+      document.getElementById('details-title').textContent = t.current.detailsTitle;
+      document.getElementById('details-grid').innerHTML = t.current.details.map(([label, value]) => `<div class="rounded-2xl bg-white p-4"><p class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">${label}</p><p class="mt-2 font-semibold leading-7 text-slate-900">${value}</p></div>`).join('');
+      document.getElementById('articles-title').textContent = t.current.articlesTitle;
+      document.getElementById('articles-count').textContent = t.current.countLabel;
+      document.getElementById('articles-list').innerHTML = articles.map((article, index) => `<article class="py-5 ${index === 0 ? 'first:pt-0' : ''}"><p class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">${index + 1}</p><h3 class="mt-2 text-base font-semibold leading-7 text-slate-900">${article}</h3></article>`).join('');
+
+      document.getElementById('archive-kicker').textContent = t.archive.kicker;
+      document.getElementById('archive-title').textContent = t.archive.title;
+      document.getElementById('archive-text').textContent = t.archive.text;
+      document.getElementById('archive-cards').innerHTML = t.archive.cards.map((item, index) => {
+        const [year, volume, text, issue, status, action] = item;
+        const dashed = index > 0 ? 'border-dashed border-slate-300 bg-slate-50' : 'border-slate-200 bg-white shadow-soft';
+        const actionHtml = index === 0
+          ? `<a href="${issueFilePath}" download class="mt-5 inline-flex items-center justify-center rounded-full bg-brand px-5 py-3 text-sm font-semibold text-white transition hover:bg-brandDark">${action}</a>`
+          : `<div class="mt-5 inline-flex items-center justify-center rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-500">${action}</div>`;
+        return `<div class="rounded-[28px] border ${dashed} p-6"><p class="text-xs font-semibold uppercase tracking-[0.18em] ${index === 0 ? 'text-brand' : 'text-slate-500'}">${year}</p><h3 class="mt-3 text-2xl font-bold text-slate-900">${volume}</h3><p class="mt-3 text-sm leading-7 text-slate-600">${text}</p><div class="mt-5 flex items-center justify-between rounded-2xl ${index === 0 ? 'bg-slate-50 text-slate-700' : 'bg-white text-slate-500'} px-4 py-3 text-sm font-semibold"><span>${issue}</span><span>${status}</span></div>${actionHtml}</div>`;
+      }).join('');
+
+      document.getElementById('authors-kicker').textContent = t.authors.kicker;
+      document.getElementById('authors-title').textContent = t.authors.title;
+      document.getElementById('authors-text').textContent = t.authors.text;
+      document.getElementById('authors-submit').textContent = t.authors.submit;
+      document.getElementById('authors-contact').textContent = t.authors.contact;
+      document.getElementById('authors-cards').innerHTML = t.authors.cards.map(([title, text]) => `<div class="rounded-[26px] border border-slate-200 bg-slate-50 p-6"><h3 class="text-lg font-bold text-slate-900">${title}</h3><p class="mt-3 text-sm leading-7 text-slate-600">${text}</p></div>`).join('');
+
+      document.getElementById('board-kicker').textContent = t.board.kicker;
+      document.getElementById('board-title').textContent = t.board.title;
+      document.getElementById('board-text').textContent = t.board.text;
+      document.getElementById('board-leads').innerHTML = t.board.leads.map(([role, name, text]) => `<div class="rounded-[28px] border border-slate-200 bg-white p-6 shadow-soft"><p class="text-xs font-semibold uppercase tracking-[0.18em] text-brand">${role}</p><h3 class="mt-3 text-xl font-bold text-slate-900">${name}</h3><p class="mt-4 text-sm leading-7 text-slate-600">${text}</p></div>`).join('');
+      document.getElementById('board-members-title').textContent = t.board.membersTitle;
+      document.getElementById('board-members-count').textContent = t.board.membersCount;
+      document.getElementById('board-members').innerHTML = boardMembers.map(name => `<div class="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-semibold text-slate-700">${name}</div>`).join('');
+
+      document.getElementById('contact-kicker').textContent = t.contact.kicker;
+      document.getElementById('contact-title').textContent = t.contact.title;
+      document.getElementById('contact-text').textContent = t.contact.text;
+      document.getElementById('contact-email-label').textContent = t.contact.emailLabel;
+      document.getElementById('contact-phone-label').textContent = t.contact.phoneLabel;
+      document.getElementById('contact-telegram-label').textContent = t.contact.telegramLabel;
+      document.getElementById('contact-site-label').textContent = t.contact.siteLabel;
+      document.getElementById('contact-address-label').textContent = t.contact.addressLabel;
+      document.getElementById('contact-address').textContent = t.contact.address;
+      document.getElementById('footer-info-title').textContent = t.contact.footerInfoTitle;
+      document.getElementById('footer-info-text').textContent = t.contact.footerInfoText;
+      document.getElementById('footer-model-title').textContent = t.contact.footerModelTitle;
+      document.getElementById('footer-model-text').textContent = t.contact.footerModelText;
+      document.getElementById('footer-status-title').textContent = t.contact.footerStatusTitle;
+      document.getElementById('footer-status-text').textContent = t.contact.footerStatusText;
+      document.getElementById('lang-select').value = lang;
+      document.getElementById('lang-select-mobile').value = lang;
+    }
+
+    menuToggle.addEventListener('click', () => {
+      const isOpen = !mobileMenu.classList.contains('hidden');
+      mobileMenu.classList.toggle('hidden');
+      menuOpen.classList.toggle('hidden');
+      menuClose.classList.toggle('hidden');
+      menuToggle.setAttribute('aria-expanded', String(!isOpen));
+    });
+
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        menuOpen.classList.remove('hidden');
+        menuClose.classList.add('hidden');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+    document.getElementById('lang-select').addEventListener('change', (e) => renderLanguage(e.target.value));
+    document.getElementById('lang-select-mobile').addEventListener('change', (e) => renderLanguage(e.target.value));
+
+    function setActiveLink() {
+      let current = 'about';
+      sections.forEach(section => {
+        const top = window.scrollY;
+        const offset = section.offsetTop - 130;
+        const height = section.offsetHeight;
+        if (top >= offset && top < offset + height) current = section.id;
+      });
+      navLinks.forEach(link => {
+        const href = link.getAttribute('href').replace('#', '');
+        link.classList.toggle('active', href === current);
+      });
+    }
+
+    window.addEventListener('scroll', setActiveLink);
+    window.addEventListener('load', () => {
+      renderLanguage('uz');
+      setActiveLink();
+    });
+  </script>
 </body>
 </html>
